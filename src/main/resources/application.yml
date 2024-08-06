@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: translatorWebApp
+  datasource:
+    url: jdbc:postgresql://192.168.84.193:5432/translation
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 8090
+api:
+  folderId: b1gq4jau4nobchssamgo
+  bearer-token: ${AUTHORIZATION}
