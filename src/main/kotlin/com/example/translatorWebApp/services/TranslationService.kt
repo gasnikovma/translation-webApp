@@ -1,5 +1,6 @@
 package com.example.translatorWebApp.services
 
+import com.example.translatorWebApp.TranslationDTO
 import com.example.translatorWebApp.clients.TranslatorClient
 import com.example.translatorWebApp.exceptions.BadRequestException
 import com.example.translatorWebApp.models.request.TranslationRequest
@@ -32,7 +33,7 @@ class TranslationService(
             }
         }.map { it.get() }
         val translatedText = translations.joinToString(" ") { it.translations[0].text }
-        translationRepository.saveTranslation(userIp, translationRequest.texts, translatedText)
+        translationRepository.saveTranslation(TranslationDTO(userIp, translationRequest.texts, translatedText))
         return translatedText
     }
 
